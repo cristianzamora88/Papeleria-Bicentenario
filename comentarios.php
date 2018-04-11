@@ -1,43 +1,69 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es"> 
-<head> 
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
-<title>Comentarios</title> 
-</head> 
-<body> 
-<?php 
-  // Se conecta al SGBD 
-  if(!($conexion = mysql_connect("localhost", "root", "123"))) 
-    die("Error: No se pudo conectar");
- 
-  // Selecciona la base de datos 
-  if(!mysql_select_db("comentarios", $conexion)) 
-    die("Error: No existe la base de datos");
- 
-  // Sentencia SQL: muestra todo el contenido de la tabla "books" 
-  $sentencia = "SELECT * FROM comentarios"; 
-  // Ejecuta la sentencia SQL 
-  $resultado = mysql_query($sentencia, $conexion); 
-  if(!$resultado) 
-    die("Error: no se pudo realizar la consulta");
+<!DOCTYPE html>
+<html>
+  <head>
 
- echo "<div id='comentarios'>";
-  while($fila = mysql_fetch_assoc($resultado)) 
-  { 
-   echo "<div class='user'>";
-    echo "<a href='" . $fila['website'] . "'>" . $fila['usuario'] . "</a><br/> <div class='tiempo'>" . $fila['fecha'] . "</div>";
-   echo "</div>";
-   echo "<div class='comment'>";
-    echo $fila['comentario'] . '<br/>';
-   echo "</div>";
-  } 
- echo "</div><br/>";
-  // Libera la memoria del resultado
-  mysql_free_result($resultado);
-  
-  // Cierra la conexión con la base de datos 
-  mysql_close($conexion); 
-?> 
-</body> 
+    <title>Registro</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.min.css" rel="stylesheet">
+
+  </head>
+<body align="center">
+
+<header class="masthead d-flex">
+      <div class="container text-center my-auto">
+	<form action="concomentario.php" method="post" name="form">
+		<center>
+<div class="col-md-4" >  
+    <div class="form-group">
+    <input type="text" class="form-control input-lg" type="text" placeholder="NOMBRES" name="nombres" required="requerido">
+        </div>
+    <div class="form-group">
+    <input class="form-control input-lg" type="text" placeholder="APELLIDOS" name="apellidos" required="requerido">
+        </div>
+    <div class="form-group">
+    <input class="form-control input-lg" type="text" placeholder="CORREO" name="correo" required="requerido">
+        </div>
+        <div class="form-group">
+    <input type="text" class="form-control input-lg"  placeholder="TELEFONO" name="telefono" required="requerido">
+        </div>
+    <div class="form-group">
+   <textarea type="text" class="form-control input-lg"  placeholder="COMENTARIO" name="comentario" maxlength="500" cols="30" rows="5" required="requerido"></textarea>
+        </div>
+		<div class="form-group">
+		<input class="btn btn-primary btn-lg btn-block" type="submit" value="ENVIAR">
+				</div>
+                       <center>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="principal.html">Regresar</a>
+      </center>
+	</form>
+	</div>
+	      </div>
+	      </center>
+  <div class="overlay"></div>
+ </header>
+</body>
+
+<script  type="text/javascript" src="js/jquery-2.2.0.min.js"></script>  
+<script  type="text/javascript" src="js/conecta.js"></script> 
+  <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/stylish-portfolio.min.js"></script>
 </html>
