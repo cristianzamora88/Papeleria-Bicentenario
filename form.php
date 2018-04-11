@@ -50,6 +50,9 @@
 		<div class="form-group">
 		<input class="btn btn-primary btn-lg btn-block" type="submit" value="INSERTAR DATOS">
 				</div>
+                       <center>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="Registro.php">Regresar</a>
+      </center>
 	</form>
 	</div>
 	      </div>
