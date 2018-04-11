@@ -12,6 +12,10 @@
   $passwordf=$_REQUEST["password"];
   include 'conexion.php';
 
+if($usuariof=='admin' && $passwordf=='1234'){
+      header('Location:administrador.html');
+    }
+    else{
     $query="SELECT * FROM registro where usuario='$usuariof' and password='$passwordf'";
     $resultado = $mysqli->query($query);
     if ($resultado->num_rows > 0) {
@@ -29,7 +33,7 @@
     else {
     header('Location:error.php');
     }
-  
+  }
 ?>
 <script  type="text/javascript" src="js/jquery-2.2.0.min.js"></script>  
 <script  type="text/javascript" src="js/conecta.js"></script>   
